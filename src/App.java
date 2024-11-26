@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 public class App {
     public static void main(String[] args) throws Exception {
-        var menu = "1-Cadastrar\n2-Listar\n3-Atualizar\n4-Apagar\n5-Lista por Letra\n0-Sair\n";
+        var menu = "1-Cadastrar\n2-Listar\n3-Atualizar\n4-Apagar\n5-Listar por Letra\n0-Sair\n";
         int op = 0;
         do{
           op = Integer.parseInt(
