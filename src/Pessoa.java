@@ -52,8 +52,8 @@ public class Pessoa {
   @Override
   public String toString() {
     return String.format(
-      "nome: %s, fone: %s, email: %s",
-      nome, fone, email
+      "\nid: %s, nome: %s, fone: %s, email: %s",
+      codigo,nome, fone, email
     );
   }
 

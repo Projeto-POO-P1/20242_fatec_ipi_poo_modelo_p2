@@ -63,4 +63,25 @@ public class PessoaDAO {
     ps.close();
  
   }
+
+  public List<Pessoa> listarPorLetra(String letra) throws Exception {
+      var pessoas = new ArrayList<Pessoa>();
+      var sql = "SELECT * FROM tb_pessoa WHERE nome LIKE ?";
+      try (var conexao = ConnectionFactory.conectar();
+          var ps = conexao.prepareStatement(sql)) {
+          ps.setString(1, letra + "%");
+          try (var rs = ps.executeQuery()) {
+              while (rs.next()) {
+                  var codigo = rs.getInt("cod_pessoa");
+                  var nome = rs.getString("nome");
+                  var fone = rs.getString("fone");
+                  var email = rs.getString("email");
+  
+                  var pessoa = new Pessoa(codigo, nome, fone, email);
+                  pessoas.add(pessoa);
+              }
+          }
+      }
+      return pessoas;
+  }
 }

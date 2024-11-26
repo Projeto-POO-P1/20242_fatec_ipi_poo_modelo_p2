@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 public class App {
     public static void main(String[] args) throws Exception {
-        var menu = "1-Cadastrar\n2-Listar\n3-Atualizar\n4-Apagar\n0-Sair\n";
+        var menu = "1-Cadastrar\n2-Listar\n3-Atualizar\n4-Apagar\n5-Lista por Letra\n0-Sair\n";
         int op = 0;
         do{
           op = Integer.parseInt(
@@ -47,8 +47,10 @@ public class App {
               break;
             }
             case 5:{
-              //capturar uma letra
-              //listar todas as pessoas cujo nome começa com essa letra
+              var letra = JOptionPane.showInputDialog("Digite a primeira letra do nome:");
+              var pessoas = new PessoaDAO().listarPorLetra(letra);
+              JOptionPane.showMessageDialog(null, pessoas);
+              break;
             }
             case 0:{
               JOptionPane.showMessageDialog(null, "Até!");
